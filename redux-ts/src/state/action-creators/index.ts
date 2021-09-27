@@ -11,7 +11,7 @@ export const searchRepositories = (term: string) => {
 
     try {
       const { data } = await axios.get(
-        "http://registry.npmjs.org/-/v1/search",
+        "https://registry.npmjs.org/-/v1/search",
         {
           params: {
             text: term,
@@ -27,7 +27,7 @@ export const searchRepositories = (term: string) => {
         type: ActionType.SEARCH_REPOSITORIES_SUCCESS,
         payload: names,
       });
-    } catch (err) {
+    } catch (err: any) {
       dispatch({
         type: ActionType.SEARCH_REPOSITORIES_ERROR,
         payload: err.message,
